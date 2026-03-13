@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Няма снимка">
+  <rect width="800" height="600" fill="#f3f4f6"/>
+  <g fill="#9ca3af" font-family="Arial, sans-serif" text-anchor="middle">
+    <circle cx="400" cy="250" r="70" fill="none" stroke="#9ca3af" stroke-width="10"/>
+    <path d="M400 200v100M350 250h100" stroke="#9ca3af" stroke-width="10" stroke-linecap="round"/>
+    <text x="400" y="370" font-size="34">Няма снимка</text>
+  </g>
+</svg>

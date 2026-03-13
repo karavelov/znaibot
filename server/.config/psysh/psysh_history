@@ -1,0 +1,10 @@
+_HiStOrY_V2_
+\134App\134Models\134User::whereNotNull('nfc_id')->get(['id','name','nfc_id','role']);
+\134App\134Models\134NfcReader::all(['id','title','type']);
+znaibot@karavelov:~$\040php8.1\040artisan\040tinker
+Psy\040Shell\040v0.12.7\040(PHP\0408.1.31\040—\040cli)\040by\040Justin\040Hileman
+>\040\134App\134Models\134User::whereNotNull('nfc_id')->get(['id','name','nfc_id','role']);
+=\040Illuminate\134Database\134Eloquent\134Collection\040{#6746
+>\040\134App\134Models\134NfcReader::all(['id','title','type']);
+=\040Illuminate\134Database\134Eloquent\134Collection\040{#6732
+>

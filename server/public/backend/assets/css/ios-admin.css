@@ -1,0 +1,68 @@
+:root {
+  --ios-surface: rgba(255, 255, 255, 0.9);
+  --ios-border: rgba(99, 102, 241, 0.12);
+  --ios-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  --ios-shadow-hover: 0 14px 30px rgba(15, 23, 42, 0.12);
+  --ios-radius: 14px;
+}
+
+.navbar.main-navbar {
+  background: var(--ios-surface) !important;
+  border-bottom: 1px solid var(--ios-border) !important;
+}
+
+.ios-dashboard .section-header {
+  border-radius: var(--ios-radius) !important;
+  border: 1px solid var(--ios-border) !important;
+  box-shadow: var(--ios-shadow) !important;
+  background: linear-gradient(180deg, #ffffff, #fafbff) !important;
+}
+
+.ios-stat-link {
+  display: block;
+  text-decoration: none !important;
+}
+
+.ios-stat-card {
+  border: 1px solid var(--ios-border) !important;
+  border-radius: var(--ios-radius) !important;
+  box-shadow: var(--ios-shadow) !important;
+  background: linear-gradient(160deg, #ffffff, #f8faff) !important;
+  transition: transform 220ms ease, box-shadow 220ms ease !important;
+}
+
+.ios-stat-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: var(--ios-shadow-hover) !important;
+}
+
+.ios-stat-card .card-icon {
+  border-radius: 12px !important;
+}
+
+.ios-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 380ms ease, transform 380ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.ios-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.dark-mode .ios-dashboard .section-header,
+body.dark .ios-dashboard .section-header,
+body.dark-mode .ios-stat-card,
+body.dark .ios-stat-card {
+  background: rgba(30, 41, 59, 0.92) !important;
+  border-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ios-reveal,
+  .ios-stat-card {
+    transition: none !important;
+  }
+}

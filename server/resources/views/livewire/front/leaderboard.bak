@@ -1,0 +1,75 @@
+@extends('frontend.layouts.master')
+
+@section('title')
+    {{ $settings->site_name }} - Класиране
+@endsection
+
+@section('content')
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="py-12">
+    <div class="container">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                {{-- Filter Form --}}
+                <form method="GET" action="{{ route('leaderboard') }}">
+                    <select 
+                        name="quiz_id" 
+                        class="form-select mb-3"
+                        onchange="this.form.submit()">
+                        <option value="0" {{ $quiz_id == 0 ? 'selected' : '' }}>Всички</option>
+                        @foreach ($quizzes as $quiz)
+                            <option value="{{ $quiz->id }}" {{ $quiz_id == $quiz->id ? 'selected' : '' }}>
+                                {{ $quiz->title }}
+                            </option>
+                        @endforeach
+                    </select>
+                </form>
+
+                {{-- Results Table --}}
+                <table class="table table-striped mt-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Потребител</th>
+                            <th scope="col">Тест</th>
+                            <th scope="col">Резултат</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($tests as $test)
+                            <tr @class([
+                                'table-info' => auth()->check() && $test->user->name == auth()->user()->name,
+                            ])>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td>{{ $test->user->name }}</td>
+                                <td>{{ $test->quiz->title }}</td>
+                                <td>{{ $test->result }} / {{ $test->quiz->questions_count }}
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="text-center">Няма резултати за този тест</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+
+                {{-- Pagination --}}
+                {{$tests->links()}}
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
